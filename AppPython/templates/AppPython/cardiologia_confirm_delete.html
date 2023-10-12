@@ -1,0 +1,21 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead4">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Eliminar Turno</h3>
+    </section><br><br><br>
+    
+    <div style="width: 300px; margin: 0 auto; background: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; text-align: center;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <p>¿Estas seguro que quieres eliminar este turno?</p>
+    
+            <input type="submit" value="Confirmar" class="btn btn-primary">
+        </form>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'MisTurnos_1' %}" class="btn btn-primary">Regresar</a>
+    </div>
+{% endblock %}

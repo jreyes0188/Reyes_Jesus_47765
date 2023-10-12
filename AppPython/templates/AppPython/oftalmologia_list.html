@@ -1,0 +1,55 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead5">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Mis Turnos</h3>
+    </section><br><br>
+
+    {% block busqueda %}
+    <form action="{% url 'ResultadoTurno_Oftalmologia' %}" method="GET" style="text-align: center;">
+        <input type="text" name="especialidad" id="especialidad">
+        <input type="submit" value="Buscar">
+    </form>
+    
+
+    <div style="text-align: center;">
+        <p style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Filtro de Busqueda de: {{especialidad}}</p>
+        {% if respuesta %}
+            <p>{{ respuesta }}</p>
+        {% endif %}
+        {% if especialidad %}
+            {% for oftalmologo in oftalmologia %}
+                <h4 style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Especialidad: {{oftalmologo.especialidad}} ----- Fecha: {{oftalmologo.fecha_turno}}</h4>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
+
+    <div class="container-fluid overflow-x-auto">
+        <div class="row justify-content-center">
+            {% for oftalmologia in object_list %}
+            <div class="col-md-3 mb-4 d-inline-block mx-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h4 class="card-title", style="margin-bottom: 30px;">Turno de Oftalmología</h4>
+                        <h5 class="card-subtitle mb-2 text-body-secondary">
+                            {{ oftalmologia.especialidad|title }}
+                        </h5>
+                        <p class="card-text">
+                            Nombre: {{ oftalmologia.nombre }} {{ oftalmologia.apellido }}<br>
+                        </p>
+                        <a href="{% url 'TurnoDetalle_3' oftalmologia.id %}" class="card-link">Detalles</a>
+                        <a href="{% url 'TurnoEditar_3' oftalmologia.id %}" class="card-link">Editar</a>
+                        <a href="{% url 'TurnoBorrar_3' oftalmologia.id %}" class="card-link">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'Oftalmologo' %}" class="btn btn-primary">Regresar</a>
+    </div>
+</header>
+{% endblock %}

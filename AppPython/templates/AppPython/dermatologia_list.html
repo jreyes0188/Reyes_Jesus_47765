@@ -1,0 +1,55 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead3">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Mis Turnos</h3>
+    </section><br><br>
+
+    {% block busqueda %}
+    <form action="{% url 'ResultadoTurno_Dermatologia' %}" method="GET" style="text-align: center;">
+        <input type="text" name="especialidad" id="especialidad">
+        <input type="submit" value="Buscar">
+    </form>
+    
+
+    <div style="text-align: center;">
+        <p style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Filtro de Busqueda de: {{especialidad}}</p>
+        {% if respuesta %}
+            <p>{{ respuesta }}</p>
+        {% endif %}
+        {% if especialidad %}
+            {% for dermatologo in dermatologia %}
+                <h4 style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Especialidad: {{dermatologo.especialidad}} ----- Fecha: {{dermatologo.fecha_turno}}</h4>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
+
+    <div class="container-fluid overflow-x-auto">
+        <div class="row justify-content-center">
+            {% for dermatologia in object_list %}
+            <div class="col-md-3 mb-4 d-inline-block mx-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h4 class="card-title", style="margin-bottom: 30px;">Turno de Dermatología</h4>
+                        <h5 class="card-subtitle mb-2 text-body-secondary">
+                            {{ dermatologia.especialidad|title }}
+                        </h5>
+                        <p class="card-text">
+                            Nombre: {{ dermatologia.nombre }} {{ dermatologia.apellido }}<br>
+                        </p>
+                        <a href="{% url 'TurnoDetalle_2' dermatologia.id %}" class="card-link">Detalles</a>
+                        <a href="{% url 'TurnoEditar_2' dermatologia.id %}" class="card-link">Editar</a>
+                        <a href="{% url 'TurnoBorrar_2' dermatologia.id %}" class="card-link">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'Dermatologo' %}" class="btn btn-primary">Regresar</a>
+    </div>
+</header>
+{% endblock %}

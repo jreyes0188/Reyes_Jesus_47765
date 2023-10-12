@@ -1,0 +1,55 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead6">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Mis Turnos</h3>
+    </section><br><br>
+
+    {% block busqueda %}
+    <form action="{% url 'ResultadoTurno_Laboratorio' %}" method="GET" style="text-align: center;">
+        <input type="text" name="especialidad" id="especialidad">
+        <input type="submit" value="Buscar">
+    </form>
+    
+
+    <div style="text-align: center;">
+        <p style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Filtro de Busqueda de: {{especialidad}}</p>
+        {% if respuesta %}
+            <p>{{ respuesta }}</p>
+        {% endif %}
+        {% if especialidad %}
+            {% for laborat in laboratorio %}
+                <h4 style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Especialidad: {{laborat.especialidad}} ----- Fecha: {{laborat.fecha_turno}}</h4>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
+
+    <div class="container-fluid overflow-x-auto">
+        <div class="row justify-content-center">
+            {% for laboratorio in object_list %}
+            <div class="col-md-3 mb-4 d-inline-block mx-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h4 class="card-title", style="margin-bottom: 30px;">Examenes de Laboratorio</h4>
+                        <h5 class="card-subtitle mb-2 text-body-secondary">
+                            {{ laboratorio.especialidad|title }}
+                        </h5>
+                        <p class="card-text">
+                            Nombre: {{ laboratorio.nombre }} {{ laboratorio.apellido }}<br>
+                        </p>
+                        <a href="{% url 'TurnoDetalle_4' laboratorio.id %}" class="card-link">Detalles</a>
+                        <a href="{% url 'TurnoEditar_4' laboratorio.id %}" class="card-link">Editar</a>
+                        <a href="{% url 'TurnoBorrar_4' laboratorio.id %}" class="card-link">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'Laboratorio' %}" class="btn btn-primary">Regresar</a>
+    </div>
+</header>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "AppPython/padre.html" %}
+
+{% block titulo %}
+    <h2 style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Iniciar Sesión</h2>
+{% endblock %}
+
+
+{% block sesion %}
+<form action="" method="POST" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="{{ formulario.username.id_for_label }}" class="form-label" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.username.label_tag }}</label>
+        {{ formulario.username }}
+        <div class="invalid-feedback" style="color: #FFA500;">
+            Por favor, ingresa tu nombre de usuario.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="{{ formulario.password.id_for_label }}" class="form-label" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.password.label_tag }}</label>
+        {{ formulario.password }}
+        <div class="invalid-feedback" style="color: #FFA500;">
+            Por favor, ingresa tu contraseña.
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" style="background-color: #FFA500; border:black;">Iniciar Sesión</button>
+</form>
+
+<script>
+
+(function() {
+    'use strict';
+
+    window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+        }, false);
+    });
+    }, false);
+})();
+</script>
+{% endblock %}

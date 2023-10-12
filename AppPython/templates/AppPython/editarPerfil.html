@@ -1,0 +1,61 @@
+{% extends "AppPython/padre.html" %}
+
+{% block editar %}
+    <h1 style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Editar el usuario</h1>
+{% endblock %}
+
+{% block sesion %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); background-color: transparent;">
+                <div class="card-body">
+                    <form action="" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ formulario.email.id_for_label }}" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.email.label_tag }}</label><br>
+                            {{ formulario.email }}
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu correo electrónico.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ formulario.first_name.id_for_label }}" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.first_name.label_tag }}</label><br>
+                            {{ formulario.first_name }}
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu nombre.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ formulario.last_name.id_for_label }}" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.last_name.label_tag }}</label><br>
+                            {{ formulario.last_name }}
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu apellido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ formulario.password1.id_for_label }}" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.password1.label_tag }}</label><br>
+                            {{ formulario.password1 }}
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu contraseña.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ formulario.password2.id_for_label }}" style="color: #000000; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">{{ formulario.password2.label_tag }}</label><br>
+                            {{ formulario.password2 }}
+                            <div class="invalid-feedback">
+                                Por favor, repite tu contraseña.
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Editar</button><br>
+                        
+                        <div class="mb-3"><br>
+                            <a href="{% url 'Avatar' %}" class="btn btn-primary">Agregar Avatar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

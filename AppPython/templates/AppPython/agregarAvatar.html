@@ -1,0 +1,21 @@
+{% extends "AppPython/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h4 style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">Agrega un Avatar</h4>
+
+{% endblock %}
+
+{% block avatar %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{formulario.as_p}}
+
+    <button type="submit">Agregar</button>
+</form>
+
+{% endblock %}

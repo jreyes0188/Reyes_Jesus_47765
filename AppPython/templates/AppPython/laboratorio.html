@@ -1,0 +1,42 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead6">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Examenes de Laboratorio</h3>
+    </section><br><br><br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-laboratorio/card_1.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Muestra de Sangre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-laboratorio/card_3.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Muestra de Orina</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-laboratorio/card_2.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Muestra Nasal Covid</p>
+                    </div>
+                </div>
+            </div>
+    </div><br><br>
+    <div class="text-center">
+        <a style="margin-right: 30px;" href="{% url 'TurnoCrear_4' %}" class="btn btn-primary">Añadir Turno</a>
+        <a href="{% url 'MisTurnos_4' %}" class="btn btn-primary">Mis Turnos</a>
+    </div>
+</header>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead6">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Complete el Turno Médico</h3>
+    </section>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <form action="" method="POST" class="p-4 border rounded">
+                    {% csrf_token %}
+                    
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {{ form.nombre.label_tag }}
+                            <br>
+                            {{ form.nombre }}
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {{ form.apellido.label_tag }}
+                            <br>
+                            {{ form.apellido }}
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {{ form.dni.label_tag }}
+                            <br>
+                            {{ form.dni }}
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {{ form.email.label_tag }}
+                            <br>
+                            {{ form.email }}
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <div class="col-6 mx-auto">
+                            <label for="{{ form.especialidad.id_for_label }}">Especialidad:</label>
+                            <select class="form-select" id="{{ form.especialidad.auto_id }}" name="{{ form.especialidad.html_name }}">
+                                <option value="" selected disabled>Selecciona una especialidad</option>
+                                <option value="Muestra de Sangre">Muestra de Sangre</option>
+                                <option value="Muestra de Orina">Muestra de Orina</option>
+                                <option value="Muestra Nasal Covid">Muestra Nasal Covid</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            {{ form.fecha_turno.label_tag }}
+                            <br>
+                            {{ form.fecha_turno }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="{% url 'MisTurnos_4' %}" class="btn btn-primary">Regresar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

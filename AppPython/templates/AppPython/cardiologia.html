@@ -1,0 +1,52 @@
+{% extends "AppPython/padre.html" %}
+
+{% block header_2 %}
+<header class="masthead4">
+    <section style="text-align: center; color: black; text-shadow: -1px -1px 0 #FFA500, 1px -1px 0 #FFA500, -1px 1px 0 #FFA500, 1px 1px 0 #FFA500;">
+        <h3>Especialidades de Cardiología</h3>
+    </section><br><br><br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-cardiologia/card_1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Electrocardiograma</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-cardiologia/card_2.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Ecocardiograma</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-cardiologia/card_3.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Ergometria en Cinta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 12rem;" src="../../static/AppPython/assets/img/portfolio/card-cardiologia/card_4.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p style="text-align: center;" class="card-text">Ergometria en Bicicleta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+    <div class="text-center">
+        <a style="margin-right: 30px;" href="{% url 'TurnoCrear_1' %}" class="btn btn-primary">Añadir Turno</a>
+        <a href="{% url 'MisTurnos_1' %}" class="btn btn-primary">Mis Turnos</a>
+    </div>
+</header>
+{% endblock %}
