@@ -38,4 +38,8 @@ Back-End:
 Python 
 Django
 SQLlite
+_________________________________________________________________________________________________________________________________________________________
 
+# Video Explicativo en Google Drive
+
+https://drive.google.com/file/d/1a5a-zfif3rUQLYpxgVaebJE2ozGK5Tg-/view?usp=sharing
